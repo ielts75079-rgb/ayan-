@@ -219,9 +219,11 @@
             const message = encodeURIComponent(`Hey! Here are my details for our Biryani date:\n🗓️ Time: ${dateVal}\n📍 Venue: ${venueVal}`);
             
             // REPLACE 'YOUR_WHATSAPP_NUMBER' with your actual number (Country code + number, no + sign or dashes. Example: 8801712345678)
-            const igUsername = "https://www.instagram.com/h_afiju_l/"; // e.g., your_insta_handle
-const message = encodeURIComponent(`Hey! Here are my details for our Biryani date:\n🗓️ Time: ${dateVal}\n📍 Venue: ${venueVal}`);
-window.open(`https://ig.me/m/${igUsername}?text=${message}`, '_blank');
+            const whatsappNumber = "+8801302619981";
+            
+            // Open WhatsApp chat with pre-filled text
+            const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${message}`;
+            window.open(whatsappUrl, '_blank');
 
             // Move forward to Page 4 automatically
             goToPage(4);
@@ -263,7 +265,7 @@ window.open(`https://ig.me/m/${igUsername}?text=${message}`, '_blank');
                     <div class="glass-card p-6 sm:p-8 rounded-3xl text-center space-y-4 animate-float">
                         <div class="text-5xl mb-2">🍛✨🥂</div>
                         <h2 class="font-playfair text-2xl sm:text-3xl font-bold text-amber-200">It's Official!</h2>
-                        <p class="text-slate-300 text-xs sm:text-sm">Your reservation has been locked in heaven and sent to instagram. Get ready for the best biryani of your life.</p>
+                        <p class="text-slate-300 text-xs sm:text-sm">Your reservation has been locked in heaven and sent to WhatsApp. Get ready for the best biryani of your life.</p>
                         <div class="pt-3">
                             <span class="inline-block px-5 py-2 bg-emerald-500/20 border border-emerald-500/40 text-emerald-300 rounded-full text-[11px] font-bold uppercase tracking-widest">
                                 Status: Confirmed ✅
