@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Official Biryani Summit 🍛</title>
+    <!-- Google Fonts & Tailwind CSS for Pro Styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&family=Playfair+Display:ital,wght@0,700;1,400&display=swap" rel="stylesheet">
+    <!-- Canvas Confetti for Celebration Emojis -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    
+    <style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 50%, #31103f 100%);
+            color: #f8fafc;
+            overflow-x: hidden;
+        }
+        .font-playfair {
+            font-family: 'Playfair Display', serif;
+        }
+        /* Smooth transitions for multi-step app feel */
+        .page-step {
+            display: none;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .page-step.active {
+            display: flex;
+            opacity: 1;
+            transform: translateY(0);
+        }
+        /* Floating animation for GIFs and decorative elements */
+        @keyframes floatSlow {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-12px) rotate(2deg); }
+        }
+        .animate-float {
+            animation: floatSlow 4s ease-in-out infinite;
+        }
+        /* Glassmorphism card aesthetic */
+        .glass-card {
+            background: rgba(30, 41, 59, 0.7);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+        }
+    </style>
+</head>
+<body class="min-h-screen flex items-center justify-center p-4">
+
+    <!-- Container Wrapper -->
+    <main class="w-full max-w-lg relative">
+
+        <!-- ================= PAGE 1: The Trap Box ================= -->
+        <section id="page-1" class="page-step active flex-col items-center text-center p-8 rounded-3xl glass-card relative overflow-hidden">
+            <!-- Decorative GIF header -->
+            <div class="mb-6 w-32 h-32 rounded-2xl overflow-hidden shadow-lg border border-amber-500/30 animate-float">
+                <img src="https://media.giphy.com/media/3o7bu3XilJ5BOiSGic/giphy.gif" alt="Cute food gif" class="w-full h-full object-cover">
+            </div>
+
+            <span class="px-4 py-1.5 rounded-full text-xs font-semibold tracking-wider bg-amber-500/20 text-amber-300 border border-amber-500/30 uppercase mb-4">
+                Priority Dispatch 🚨
+            </span>
+
+            <h1 class="font-playfair text-3xl font-bold mb-3 text-amber-100">
+                Incoming Secure Transmission...
+            </h1>
+            
+            <!-- The Message Box -->
+            <div class="my-6 p-6 bg-slate-900/90 rounded-2xl border border-amber-500/40 shadow-inner w-full relative">
+                <p class="text-xl font-medium text-slate-100 leading-relaxed">
+                    "Do you want to go on a <span class="text-amber-400 font-bold underline decoration-amber-500/50 underline-offset-4">Biryani Date</span> with me?"
+                </p>
+                <div class="absolute -top-3 -right-3 text-2xl animate-bounce">🍛</div>
+            </div>
+
+            <!-- Action Buttons -->
+            <div id="button-group" class="flex items-center justify-center gap-6 w-full mt-4 relative h-20">
+                <button onclick="goToPage(2)" class="px-8 py-3.5 bg-gradient-to-r from-amber-500 to-orange-600 hover:from-amber-400 hover:to-orange-500 text-slate-950 font-extrabold rounded-xl shadow-lg shadow-amber-500/20 transition-all transform hover:scale-105 active:scale-95 z-20">
+                    YES 😍
+                </button>
+                
+                <!-- The Elusive No Button -->
+                <button id="no-btn" onmouseover="teleportNoButton()" ontouchstart="teleportNoButton()" class="absolute px-8 py-3.5 bg-slate-800 hover:bg-slate-700 text-slate-400 font-bold rounded-xl border border-slate-700 transition-all duration-150 z-10 cursor-not-allowed">
+                    No 🙄
+                </button>
+            </div>
+            
+            <p class="text-xs text-slate-400 mt-6 italic">Warning: The "No" button has a mind of its own due to strict culinary laws.</p>
+        </section>
+
+
+        <!-- ================= PAGE 2: The Plot Twist ================= -->
+        <section id="page-2" class="page-step flex-col items-center text-center p-8 rounded-3xl glass-card">
+            <div class="mb-6 w-36 h-36 rounded-2xl overflow-hidden shadow-lg border border-amber-500/30 animate-float">
+                <img src="https://media.giphy.com/media/26ufdipQqU2lhNA4g/giphy.gif" alt="Suspicious eyes gif" class="w-full h-full object-cover">
+            </div>
+
+            <h2 class="font-playfair text-3xl font-bold mb-4 text-amber-200">
+                Wait a minute... 🤔
+            </h2>
+            
+            <div class="p-6 bg-slate-900/80 rounded-2xl border border-slate-700 mb-6 w-full space-y-3">
+                <p class="text-lg text-slate-200">
+                    You actually said <strong class="text-emerald-400 font-bold">YES</strong>? 
+                </p>
+                <p class="text-sm text-slate-400">
+                    (Honestly, I was fully prepared for you to try clicking the "No" button repeatedly. Good choice though, elite tier appetite detected.)
+                </p>
+            </div>
+
+            <button onclick="goToPage(3)" class="w-full py-4 bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-400 hover:to-teal-500 text-slate-950 font-extrabold rounded-xl shadow-lg shadow-emerald-500/20 transition-all transform hover:scale-[1.02] active:scale-95 flex items-center justify-center gap-2">
+                <span>Book the Date & Venue</span>
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M10.293 3.293a1.1 1 0 011.414 0l6 6a1.1 1 0 010 1.414l-6 6a1.1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+                </svg>
+            </button>
+        </section>
+
+
+        <!-- ================= PAGE 3: Venue & Logistics Dispatch ================= -->
+        <section id="page-3" class="page-step flex-col items-center text-center p-8 rounded-3xl glass-card">
+            <div class="mb-4 w-28 h-28 rounded-2xl overflow-hidden shadow-lg border border-amber-500/30 animate-float">
+                <img src="https://media.giphy.com/media/xT5LMDzDBwrB88fyUw/giphy.gif" alt="Food planning gif" class="w-full h-full object-cover">
+            </div>
+
+            <h2 class="font-playfair text-2xl font-bold mb-2 text-amber-200">
+                Lock In The Details 🗓️
+            </h2>
+            <p class="text-xs text-slate-400 mb-6">Your preferences are beamed straight to my primary inbox.</p>
+
+            <!-- Form dispatching to Web3Forms (Free endpoint replacement for email forwarding) -->
+            <form action="https://api.web3forms.com/submit" method="POST" id="date-form" onsubmit="handleFormSubmit(event)" class="w-full space-y-4 text-left">
+                <!-- Replace with your free access key from https://web3forms.com -->
+                <input type="hidden" name="access_key" value="YOUR_WEB3FORMS_ACCESS_KEY_HERE">
+                <input type="hidden" name="subject" value="🚨 NEW BIRYANI DATE CONFIRMATION!">
+
+                <div>
+                    <label class="block text-xs font-semibold uppercase tracking-wider text-amber-400/90 mb-1">Preferred Date & Time</label>
+                    <input type="text" name="date_time" required placeholder="e.g., This Friday @ 8:00 PM" class="w-full px-4 py-3 bg-slate-900 border border-slate-700 rounded-xl text-slate-100 placeholder-slate-500 focus:outline-none focus:border-amber-500 transition-colors text-sm">
+                </div>
+
+                <div>
+                    <label class="block text-xs font-semibold uppercase tracking-wider text-amber-400/90 mb-1">Dream Venue / Location</label>
+                    <input type="text" name="venue" required placeholder="e.g., That legendary spot downtown / Rooftop" class="w-full px-4 py-3 bg-slate-900 border border-slate-700 rounded-xl text-slate-100 placeholder-slate-500 focus:outline-none focus:border-amber-500 transition-colors text-sm">
+                </div>
+
+                <button type="submit" class="w-full mt-2 py-4 bg-gradient-to-r from-amber-500 to-orange-600 hover:from-amber-400 hover:to-orange-500 text-slate-950 font-extrabold rounded-xl shadow-lg shadow-amber-500/20 transition-all transform hover:scale-[1.02] active:scale-95">
+                    Transmit to Inbox 🚀
+                </button>
+            </form>
+        </section>
+
+
+        <!-- ================= PAGE 4: The Micro-Contribution Fee ================= -->
+        <section id="page-4" class="page-step flex-col items-center text-center p-8 rounded-3xl glass-card">
+            <div class="mb-6 w-32 h-32 rounded-2xl overflow-hidden shadow-lg border border-amber-500/30 animate-float">
+                <img src="https://media.giphy.com/media/13HgwGsXF0aiGY/giphy.gif" alt="Funny rich or celebration gif" class="w-full h-full object-cover">
+            </div>
+
+            <h2 class="font-playfair text-2xl font-bold mb-3 text-amber-200">
+                One Final Protocol Check 💼
+            </h2>
+            
+            <div class="p-5 bg-slate-900/90 rounded-2xl border border-amber-500/30 mb-6 text-sm text-slate-300 leading-relaxed">
+                To guarantee absolute commitment to the culinary arts, all esteemed guests are kindly requested to contribute a <strong class="text-amber-400 font-bold">little nominal fee</strong> (emotional investment + looking fabulous).
+            </div>
+
+            <button onclick="triggerCelebration()" class="w-full py-4 bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-500 hover:opacity-95 text-white font-extrabold rounded-xl shadow-lg shadow-purple-500/30 transition-all transform hover:scale-[1.02] active:scale-95 flex items-center justify-center gap-2">
+                <span>Yes, I Will Contribute! 🎉</span>
+            </button>
+        </section>
+
+    </main>
+
+    <!-- JavaScript Control Hub -->
+    <script>
+        // Smooth Page Navigation Engine
+        function goToPage(pageNumber) {
+            document.querySelectorAll('.page-step').forEach(step => {
+                step.classList.remove('active');
+            });
+            setTimeout(() => {
+                const targetPage = document.getElementById(`page-${pageNumber}`);
+                targetPage.classList.add('active');
+            }, 150);
+        }
+
+        // Elusive "No" Button Physics (Evades touch/hover effortlessly)
+        const noBtn = document.getElementById('no-btn');
+        let dodgeCount = 0;
+
+        function teleportNoButton() {
+            dodgeCount++;
+            // Calculate random bounds within container viewport
+            const x = (Math.random() - 0.5) * 220;
+            const y = (Math.random() - 0.5) * 120;
+            noBtn.style.transform = `translate(${x}px, ${y}px)`;
+            
+            // Funny escalation text if she tries too hard
+            if(dodgeCount === 3) noBtn.innerText = "Nice try 🏃‍♀️";
+            if(dodgeCount === 6) noBtn.innerText = "Error 404";
+            if(dodgeCount === 9) noBtn.innerText = "Just click Yes 😭";
+        }
+
+        // Handle Form Submission smoothly via fetch
+        function handleFormSubmit(event) {
+            event.preventDefault();
+            const form = document.getElementById('date-form');
+            const formData = new FormData(form);
+
+            // Send data asynchronously to your email sink
+            fetch(form.action, {
+                method: 'POST',
+                body: formData
+            }).then(response => {
+                if (response.ok) {
+                    goToPage(4);
+                } else {
+                    alert('Transmission glitch, but let’s skip to the celebration anyway!');
+                    goToPage(4);
+                }
+            }).catch(error => {
+                // Fallback progression even if network blocks
+                goToPage(4);
+            });
+        }
+
+        // Grand Celebration Emoji Fall from Top
+        function triggerCelebration() {
+            // Multiple bursts of professional confetti mixed with emojis
+            const duration = 3.5 * 1000;
+            const animationEnd = Date.now() + duration;
+            const defaults = { startVelocity: 30, spread: 360, ticks: 60, zIndex: 1000 };
+
+            function randomInRange(min, max) {
+                return Math.random() * (max - min) + min;
+            }
+
+            const interval = setInterval(function() {
+                const timeLeft = animationEnd - Date.now();
+                if (timeLeft <= 0) {
+                    return clearInterval(interval);
+                }
+                const particleCount = 50 * (timeLeft / duration);
+                
+                // Confetti blast from multiple angles
+                confetti(Object.assign({}, defaults, { 
+                    particleCount, 
+                    origin: { x: randomInRange(0.1, 0.3), y: Math.random() - 0.2 },
+                    colors: ['#f59e0b', '#ec4899', '#8b5cf6', '#10b981']
+                }));
+                confetti(Object.assign({}, defaults, { 
+                    particleCount, 
+                    origin: { x: randomInRange(0.7, 0.9), y: Math.random() - 0.2 },
+                    colors: ['#f59e0b', '#ec4899', '#8b5cf6', '#10b981']
+                }));
+            }, 250);
+
+            // Display custom success toast overlay
+            setTimeout(() => {
+                const mainContainer = document.querySelector('main');
+                mainContainer.innerHTML = `
+                    <div class="glass-card p-8 rounded-3xl text-center space-y-4 animate-float">
+                        <div class="text-6xl mb-2">🍛✨🥂</div>
+                        <h2 class="font-playfair text-3xl font-bold text-amber-200">It's Official!</h2>
+                        <p class="text-slate-300 text-sm">Your reservation has been locked in heaven (and my inbox). Get ready for the best biryani of your life.</p>
+                        <div class="pt-4">
+                            <span class="inline-block px-6 py-2 bg-emerald-500/20 border border-emerald-500/40 text-emerald-300 rounded-full text-xs font-bold uppercase tracking-widest">
+                                Status: Confirmed ✅
+                            </span>
+                        </div>
+                    </div>
+                `;
+            }, 1000);
+        }
+    </script>
+</body>
+</html>
