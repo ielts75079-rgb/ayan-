@@ -123,7 +123,7 @@
         </section>
 
 
-        <!-- ================= PAGE 3: Venue & Logistics Dispatch (Instagram DM) ================= -->
+        <!-- ================= PAGE 3: Venue & Logistics Dispatch (WhatsApp) ================= -->
         <section id="page-3" class="page-step flex-col items-center text-center p-6 sm:p-8 rounded-3xl glass-card">
             <div class="mb-4 w-24 h-24 sm:w-28 sm:h-28 rounded-2xl overflow-hidden shadow-lg border border-amber-500/30 animate-float">
                 <img src="https://media.giphy.com/media/xT5LMDzDBwrB88fyUw/giphy.gif" alt="Food planning gif" class="w-full h-full object-cover">
@@ -132,9 +132,9 @@
             <h2 class="font-playfair text-xl sm:text-2xl font-bold mb-2 text-amber-200">
                 Lock In The Details 🗓️
             </h2>
-            <p class="text-[11px] sm:text-xs text-slate-400 mb-5">Type your preferences below. Submitting will forward them straight to my Instagram inbox!</p>
+            <p class="text-[11px] sm:text-xs text-slate-400 mb-5">Type your preferences below. Submitting will forward them straight to my WhatsApp!</p>
 
-            <form id="date-form" onsubmit="sendToInstagram(event)" class="w-full space-y-3.5 text-left">
+            <form id="date-form" onsubmit="sendToWhatsApp(event)" class="w-full space-y-3.5 text-left">
                 <div>
                     <label class="block text-[11px] font-semibold uppercase tracking-wider text-amber-400/90 mb-1">Preferred Date & Time</label>
                     <!-- text-base prevents auto-zoom on iOS devices -->
@@ -146,8 +146,8 @@
                     <input type="text" id="input-venue" required placeholder="e.g., That legendary spot downtown" class="w-full px-4 py-3 bg-slate-900 border border-slate-700 rounded-xl text-slate-100 placeholder-slate-500 focus:outline-none focus:border-amber-500 text-base sm:text-sm">
                 </div>
 
-                <button type="submit" class="w-full mt-2 py-4 bg-gradient-to-r from-pink-500 to-purple-600 active:scale-95 text-white font-extrabold rounded-xl shadow-lg shadow-pink-500/20 transition-all flex items-center justify-center gap-2 text-sm sm:text-base">
-                    <span>Send to My Instagram Inbox 💌</span>
+                <button type="submit" class="w-full mt-2 py-4 bg-gradient-to-r from-emerald-500 to-green-600 active:scale-95 text-slate-950 font-extrabold rounded-xl shadow-lg shadow-emerald-500/20 transition-all flex items-center justify-center gap-2 text-sm sm:text-base">
+                    <span>Send to My WhatsApp 💬</span>
                 </button>
             </form>
         </section>
@@ -209,8 +209,8 @@
             document.getElementById('custom-popup').classList.add('hidden');
         }
 
-        // Send Page 3 form details directly to your Instagram DM link
-        function sendToInstagram(event) {
+        // Send Page 3 form details directly to your WhatsApp
+        function sendToWhatsApp(event) {
             event.preventDefault();
             const dateVal = document.getElementById('input-date').value;
             const venueVal = document.getElementById('input-venue').value;
@@ -218,14 +218,12 @@
             // Craft the direct text message
             const message = encodeURIComponent(`Hey! Here are my details for our Biryani date:\n🗓️ Time: ${dateVal}\n📍 Venue: ${venueVal}`);
             
-            // NOTE: Replace 'YOUR_INSTAGRAM_USERNAME' with your actual Instagram handle 
-            const instagramUsername = "YOUR_INSTAGRAM_USERNAME";
+            // REPLACE 'YOUR_WHATSAPP_NUMBER' with your actual number (Country code + number, no + sign or dashes. Example: 8801712345678)
+            const whatsappNumber = "01302619981";
             
-            // Try opening Instagram direct message scheme or desktop link
-            const igUrl = `https://ig.me/m/${instagramUsername}?text=${message}`;
-            
-            // Open Instagram link in a new tab
-            window.open(igUrl, '_blank');
+            // Open WhatsApp chat with pre-filled text
+            const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${message}`;
+            window.open(whatsappUrl, '_blank');
 
             // Move forward to Page 4 automatically
             goToPage(4);
@@ -267,7 +265,7 @@
                     <div class="glass-card p-6 sm:p-8 rounded-3xl text-center space-y-4 animate-float">
                         <div class="text-5xl mb-2">🍛✨🥂</div>
                         <h2 class="font-playfair text-2xl sm:text-3xl font-bold text-amber-200">It's Official!</h2>
-                        <p class="text-slate-300 text-xs sm:text-sm">Your reservation has been locked in heaven and sent to Instagram. Get ready for the best biryani of your life.</p>
+                        <p class="text-slate-300 text-xs sm:text-sm">Your reservation has been locked in heaven and sent to WhatsApp. Get ready for the best biryani of your life.</p>
                         <div class="pt-3">
                             <span class="inline-block px-5 py-2 bg-emerald-500/20 border border-emerald-500/40 text-emerald-300 rounded-full text-[11px] font-bold uppercase tracking-widest">
                                 Status: Confirmed ✅
